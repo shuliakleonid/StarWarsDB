@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './RandomPlanet.css'
 import SwapiServiceClass from '../../services/swapi-services';
 import Spinner from '../spinner/Spinner';
+import {throws} from 'assert';
+import ErrorIndicator from '../error-indicator/ErrorIndicator';
 
 export interface PlanetType {
   id: string | null
@@ -29,7 +31,9 @@ const RandomPlanet = () => {
   }
 
   const [dataOfPlanet, setDataOfPlanet] = useState<PlanetType>(state.planet)
-  const [loading, setLoading] = useState(state.loading)
+  const [loading, setLoading] = useState<boolean>(state.loading)
+  const [error,setError] = useState<boolean>(false)
+
   useEffect(() => {
     const id = Math.floor(Math.random() * 15 + 2) + ''//рандомный номер планеты
     const swapiService = new SwapiServiceClass()
@@ -45,13 +49,16 @@ const RandomPlanet = () => {
               }),
                   setLoading(false)
             }
-        )
+        ).catch((err)=> setError(true))
 
   }, [])
 
   return (
-      <div className="random-planet jumbotron rounded">
-        {loading ? <Spinner/> : <>
+      error?<ErrorIndicator/>
+      :<div className="random-planet jumbotron rounded">
+        {loading
+            ? <Spinner/>
+            : <>
           <img className="planet-image"
                src={`https://starwars-visualguide.com/assets/img/planets/${dataOfPlanet.id ? dataOfPlanet.id : '5'}.jpg`}/>
           <div>
