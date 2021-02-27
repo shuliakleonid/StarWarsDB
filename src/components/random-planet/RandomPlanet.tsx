@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './RandomPlanet.css'
 import SwapiServiceClass from '../../services/swapi-services';
+import Spinner from '../spinner/Spinner';
 
 export interface State {
   id: string | null
@@ -41,8 +42,9 @@ const RandomPlanet = () => {
 
   return (
       <div className="random-planet jumbotron rounded">
-        <img className="planet-image"
-             src={`https://starwars-visualguide.com/assets/img/planets/${dataOfPlanet.id?dataOfPlanet.id:'5'}.jpg`}/>
+        <Spinner/>
+        {/*<img className="planet-image"*/}
+        {/*     src={`https://starwars-visualguide.com/assets/img/planets/${dataOfPlanet.id?dataOfPlanet.id:'5'}.jpg`}/>*/}
         <div>
           <h4>{dataOfPlanet.name}</h4>
           <ul className="list-group list-group-flush">
