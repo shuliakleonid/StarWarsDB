@@ -1,4 +1,4 @@
-import {State} from '../components/random-planet/RandomPlanet';
+import {PlanetType, StateType} from '../components/random-planet/RandomPlanet';
 
 export interface StarshipType{
   id: string
@@ -68,7 +68,7 @@ export default class SwapiServiceClass {
     const idRexExp = /\/([0-9]*)\/$/
     return item.url.match(idRexExp)[1]
   }// из урла забираем порядковый номер планеты
-  _transformPlanet(planet: any): State {
+  _transformPlanet(planet: any): PlanetType {
     return {
       id: this._extractId(planet),
       name: planet.name,
