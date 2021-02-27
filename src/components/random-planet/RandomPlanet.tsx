@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './RandomPlanet.css'
 import SwapiServiceClass from '../../services/swapi-services';
 
-interface State {
+export interface State {
   id: string | null
   name: string | null
   population: string | null
@@ -21,8 +21,7 @@ const RandomPlanet = () => {
 
   const [dataOfPlanet, setDataOfPlanet] = useState<State>(state)
   useEffect(() => {
-    let id = Math.floor(Math.random() * 15 + 2) + ''
-    console.log(id)
+    const id = Math.floor(Math.random() * 15 + 2) + ''
     const swapiService = new SwapiServiceClass()
     swapiService.getPlanet(id)
         .then((planet) => {
@@ -31,7 +30,7 @@ const RandomPlanet = () => {
                 id,
                 name: planet.name,
                 population: planet.population,
-                rotationPeriod: planet.rotation_period,
+                rotationPeriod: planet.rotationPeriod,
                 diameter: planet.diameter
               })
             }
@@ -43,7 +42,7 @@ const RandomPlanet = () => {
   return (
       <div className="random-planet jumbotron rounded">
         <img className="planet-image"
-             src={`https://starwars-visualguide.com/assets/img/planets/${dataOfPlanet.id}.jpg`}/>
+             src={`https://starwars-visualguide.com/assets/img/planets/${dataOfPlanet.id?dataOfPlanet.id:'5'}.jpg`}/>
         <div>
           <h4>{dataOfPlanet.name}</h4>
           <ul className="list-group list-group-flush">
