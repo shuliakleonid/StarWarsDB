@@ -1,23 +1,23 @@
-import {PlanetType, StateType} from '../components/random-planet/RandomPlanet';
+import {PlanetType} from '../components/random-planet/RandomPlanet';
 
-export interface StarshipType{
+export interface StarshipType {
   id: string
-  name:string
-  model:string
-  manufacture:string
-  costInCredits:string
-  length:string
-  crew:string
-  passengers:string
-  cargoCapacity:string
+  name: string
+  model: string
+  manufacture: string
+  costInCredits: string
+  length: string
+  crew: string
+  passengers: string
+  cargoCapacity: string
 }
 
-export interface PersonType{
-  id:string
-  name:string
-  gender:string
-  birthYear:string
-  eyeColor:string
+export interface PersonType {
+  id: string
+  name: string
+  gender: string
+  birthYear: string
+  eyeColor: string
 }
 
 export default class SwapiServiceClass {
@@ -78,35 +78,32 @@ export default class SwapiServiceClass {
     }
   }
 
-_transformStarship(starship:any):StarshipType{
-  return{
-    id: this._extractId(starship),
-    name: starship.name,
-    model:starship.model,
-    manufacture:starship.manufacture,
-    costInCredits:starship.costInCredits,
-    length:starship.length,
-    crew:starship.crew,
-    passengers:starship.passengers,
-    cargoCapacity:starship.cargoCapacity
-  }
-}
-
-_transformPerson(person:any):PersonType{
-    return{
-      id:this._extractId(person),
-      name:person.name,
-      gender:person.gender,
-      birthYear:person.birthYear,
-      eyeColor:person.eyeColor
+  _transformStarship(starship: any): StarshipType {
+    return {
+      id: this._extractId(starship),
+      name: starship.name,
+      model: starship.model,
+      manufacture: starship.manufacture,
+      costInCredits: starship.costInCredits,
+      length: starship.length,
+      crew: starship.crew,
+      passengers: starship.passengers,
+      cargoCapacity: starship.cargoCapacity
     }
+  }
+
+  _transformPerson(person: any): PersonType {
+    return {
+      id: this._extractId(person),
+      name: person.name,
+      gender: person.gender,
+      birthYear: person.birthYear,
+      eyeColor: person.eyeColor
+    }
+  }
+
+
 }
-
-
-
-}
-
-
 
 
 //
