@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {FunctionComponent, useEffect} from 'react';
 import './PersonDetails.css'
+import SwapiServiceClass from '../../services/swapi-services';
 
-const PersonDetails = () => {
+type PersonDetailsTypeProps={
+  personSelected:string
+}
+
+const PersonDetails:FunctionComponent<PersonDetailsTypeProps> = ({personSelected}) => {
+
+
+  useEffect(()=>{
+    const swapiService = new SwapiServiceClass()
+    swapiService.getPerson(  personSelected ).then((res)=>console.log(res,'People'))
+  },[])
   return (
 
       <div className="person-details card">

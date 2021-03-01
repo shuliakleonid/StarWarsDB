@@ -68,7 +68,7 @@ export default class SwapiServiceClass {
     const idRexExp = /\/([0-9]*)\/$/
     return item.url.match(idRexExp)[1]
   }// из урла забираем порядковый номер планеты
-  _transformPlanet(planet: any): PlanetType {
+  _transformPlanet=(planet: any): PlanetType =>{
     return {
       id: this._extractId(planet),
       name: planet.name,
@@ -78,7 +78,7 @@ export default class SwapiServiceClass {
     }
   }
 
-  _transformStarship(starship: any): StarshipType {
+  _transformStarship=(starship: any): StarshipType =>{
     return {
       id: this._extractId(starship),
       name: starship.name,
@@ -92,7 +92,7 @@ export default class SwapiServiceClass {
     }
   }
 
-  _transformPerson(person: any): PersonType {
+  _transformPerson=(person: any): PersonType=> {
     return {
       id: this._extractId(person),
       name: person.name,

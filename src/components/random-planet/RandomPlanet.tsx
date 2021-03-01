@@ -39,7 +39,7 @@ let interval=setInterval(()=>{
     const swapiService = new SwapiServiceClass()
     swapiService.getPlanet(id)
         .then((planet) => {
-              console.log(planet)
+
               return setDataOfPlanet({
                 id,
                 name: planet.name,
@@ -51,7 +51,7 @@ let interval=setInterval(()=>{
             }
         ).catch((err) => setError(true))
 
-},2000)
+},10000)
 return ()=>clearInterval(interval)
   }, [])
 
