@@ -3,13 +3,14 @@ import './PersonDetails.css'
 import {PersonType} from '../../services/swapi-services';
 
 type PersonDetailsTypeProps = {
-
+  renderItemPlanet?:any
   item: PersonType
 }
 
 const PersonDetails: FunctionComponent<PersonDetailsTypeProps> = ({ item}) => {
-  console.log(item,'ItemList')
+  // console.log(item,'ItemList')
   const {id, name, gender, birthYear, eyeColor} = item
+  //renderItemPlanet(item)
   return (
       <div className="person-details card">
         <img className="person-image"

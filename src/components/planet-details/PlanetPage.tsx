@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ItemList from '../item-list/ItemList';
 import PersonDetails from '../person-details/PersonDetails';
-import SwapiServiceClass, {PersonType} from '../../services/swapi-services';
+import SwapiServiceClass from '../../services/swapi-services';
 import Spinner from '../spinner/Spinner';
 
 const PlanetPage = () => {
@@ -20,23 +20,27 @@ const PlanetPage = () => {
         .then((response) => setPlanetList(response))//получаем список планет
 
     swapiService.getPlanet(planetSelected)//получаем необходимого планеты
-        .then((personId) => setPlanet(personId))
+        .then((planetId) => setPlanet(planetId))
 
   }, [planetSelected])
-  console.log(planet,'person')
+  console.log(planet, 'person')
   console.log(planetSelected)
   return (
       <div className="row mb2 ">
         <div className="col-md-6 mt-3">
           {planetList === null
               ? <Spinner/>
-              : <ItemList peopleList={planetList} onPersonSelected={onPersonSelected}/>
+              : <ItemList items={planetList}
+                          renderItem={(item: { name: string; })=>`${item.name}`}
+                          onPersonSelected={onPersonSelected}/>
           }
         </div>
         <div className="col-md-6">
           {planet === null
               ? <Spinner/>
-              : <PersonDetails item={planet} />
+              : <PersonDetails item={planet}
+              //renderItemPlanet={({name,diameter,population,rotationPeriod}=>`${name}(${diameter}${population}${rotationPeriod})`)}
+              />
           }
         </div>
       </div>

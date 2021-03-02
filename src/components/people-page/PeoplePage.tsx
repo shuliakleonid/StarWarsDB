@@ -22,14 +22,17 @@ const PeoplePage = () => {
         .then((personId) => setPerson(personId))
 
   }, [personSelected])
-  console.log(person,'person')
-  console.log(personSelected)
+  // console.log(person,'person')
+  // console.log(personSelected)
+
   return (
       <div className="row mb2 ">
         <div className="col-md-6 mt-3">
           {peopleList === null
               ? <Spinner/>
-              : <ItemList peopleList={peopleList} onPersonSelected={onPersonSelected}/>
+              : <ItemList items={peopleList}
+                          renderItem={(item: { name: string; gender: string; birthYear: string; })=>`${item.name}(${item.gender},${item.birthYear})`}
+                          onPersonSelected={onPersonSelected}/>
           }
         </div>
         <div className="col-md-6">

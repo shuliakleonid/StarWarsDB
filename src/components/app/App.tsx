@@ -18,7 +18,7 @@ function App() {
           <ErrorButton/>
         <PeoplePage/>
         <PlanetPage/>
-        <StarshipPage/>
+        {/*<StarshipPage/>*/}
       </div>
   )
 }

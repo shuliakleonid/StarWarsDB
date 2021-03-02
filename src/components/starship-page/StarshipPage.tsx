@@ -6,8 +6,8 @@ import Spinner from '../spinner/Spinner';
 
 const StarshipPage = () => {
 
-  const [starshipList, setStarshipList] = useState<Array<PersonType> | null>(null)
-  const [starship, setStarship] = useState<PersonType | null>(null)
+  const [starshipList, setStarshipList] = useState<any | null>(null)
+  const [starship, setStarship] = useState<any | null>(null)
   const [starshipSelected, setStarshipSelected] = useState('1')
   const onPersonSelected = (id: string) => {
     setStarshipSelected(id)
@@ -15,11 +15,11 @@ const StarshipPage = () => {
 
   useEffect(() => {
     const swapiService = new SwapiServiceClass()
-    swapiService.getAllPeople()
+    swapiService.getAllStarShips()
         .then((response) => setStarshipList(response))//получаем список кораблей
 
-    swapiService.getPerson(starshipSelected)//получаем необходимого кораблей
-        .then((personId) => setStarship(personId))
+    swapiService.getStarship(starshipSelected)//получаем необходимого кораблей
+        .then((starshipId) => setStarship(starshipId))
 
   }, [starshipSelected])
   console.log(starship,'starship')
@@ -29,7 +29,7 @@ const StarshipPage = () => {
         <div className="col-md-6 mt-3">
           {starshipList === null
               ? <Spinner/>
-              : <ItemList peopleList={starshipList} onPersonSelected={onPersonSelected}/>
+              : <ItemList items={starshipList} onPersonSelected={onPersonSelected}/>
           }
         </div>
         <div className="col-md-6">
