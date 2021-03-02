@@ -5,6 +5,8 @@ import RandomPlanet from '../random-planet/RandomPlanet';
 import PeoplePage from '../people-page/PeoplePage';
 import PlanetPage from '../planet-details/PlanetPage';
 import StarshipPage from '../starship-page/StarshipPage';
+import ErrorIndicator from '../error-indicator/ErrorIndicator';
+import ErrorBoundry from '../error-boundary/ErrorBoundary';
 
 function App() {
 
@@ -16,8 +18,11 @@ function App() {
         <Header/>
         <RandomPlanet/>
           <ErrorButton/>
+          <ErrorBoundry>
         <PeoplePage/>
-        <PlanetPage/>
+          </ErrorBoundry>
+
+        {/*<PlanetPage/>*/}
         {/*<StarshipPage/>*/}
       </div>
   )

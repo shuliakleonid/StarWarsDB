@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from 'react';
 import './PersonDetails.css'
 import {PersonType} from '../../services/swapi-services';
+import ErrorButton from '../error-button/ErrorButton';
 
 type PersonDetailsTypeProps = {
   renderItemPlanet?:any
@@ -33,6 +34,7 @@ const PersonDetails: FunctionComponent<PersonDetailsTypeProps> = ({ item}) => {
             </li>
           </ul>
         </div>
+        <ErrorButton/>
       </div>
   );
 };

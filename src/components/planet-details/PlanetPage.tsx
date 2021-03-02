@@ -32,7 +32,7 @@ const PlanetPage = () => {
               ? <Spinner/>
               : <ItemList items={planetList}
                           renderItem={(item: { name: string; })=>`${item.name}`}
-                          onPersonSelected={onPersonSelected}/>
+                          onPersonSelected={onPersonSelected} children={null}/>
           }
         </div>
         <div className="col-md-6">

@@ -29,7 +29,7 @@ const StarshipPage = () => {
         <div className="col-md-6 mt-3">
           {starshipList === null
               ? <Spinner/>
-              : <ItemList items={starshipList} onPersonSelected={onPersonSelected}/>
+              : <ItemList items={starshipList} onPersonSelected={onPersonSelected} children={null}/>
           }
         </div>
         <div className="col-md-6">

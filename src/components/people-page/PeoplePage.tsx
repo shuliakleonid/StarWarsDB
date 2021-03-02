@@ -31,14 +31,18 @@ const PeoplePage = () => {
           {peopleList === null
               ? <Spinner/>
               : <ItemList items={peopleList}
-                          renderItem={(item: { name: string; gender: string; birthYear: string; })=>`${item.name}(${item.gender},${item.birthYear})`}
-                          onPersonSelected={onPersonSelected}/>
+                          // renderItem={(item: { name: string; gender: string; birthYear: string; }) =>
+                          //     `${item.name}(${item.gender},${item.birthYear})`}
+                          onPersonSelected={onPersonSelected}>
+                {(item: { name: string; gender: string; birthYear: string; }) =>
+                  `${item.name}(${item.gender},${item.birthYear})`}
+              </ItemList>
           }
         </div>
         <div className="col-md-6">
           {person === null
               ? <Spinner/>
-              : <PersonDetails item={person} />
+              : <PersonDetails item={person}/>
           }
         </div>
       </div>

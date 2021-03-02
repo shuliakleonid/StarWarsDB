@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, ReactChild, ReactFragment, ReactPortal} from 'react';
 import './ItemLists.css'
 import {PersonType} from '../../services/swapi-services';
 import {v1} from 'uuid'
@@ -7,15 +7,18 @@ import {v1} from 'uuid'
 type ItemListPropsType = {
   onPersonSelected: (id: string) => void
   items: Array<PersonType>
-  renderItem?: any
+  renderItem?: any,
+  children: ReactChild | ReactFragment | ReactPortal | boolean | null | undefined
 }
-const ItemList: FunctionComponent<ItemListPropsType> = ({onPersonSelected, renderItem, items}) => {
+const ItemList: FunctionComponent<ItemListPropsType> = (props) => {
 
-  const ItemsList = items.map(el => {
+  const ItemsList = props.items.map(el => {
     const {id} = el
-    const label = renderItem(el)
+
+    // @ts-ignore
+    const label = props.children(el)
     return <li key={v1()} className="list-group-item"
-               onClick={() => onPersonSelected(id)}>{label}</li>
+               onClick={() => props.onPersonSelected(id)}>{label}</li>
   })
   return (
       <div>
