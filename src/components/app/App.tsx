@@ -1,28 +1,24 @@
-import React, {useState} from 'react';
-
+import React from 'react';
+import ErrorButton from '../error-button/ErrorButton';
 import Header from '../header/Header';
 import RandomPlanet from '../random-planet/RandomPlanet';
-import ItemList from '../item-list/ItemList';
-import PersonDetails from '../person-details/PersonDetails';
+import PeoplePage from '../people-page/PeoplePage';
+import PlanetPage from '../planet-details/PlanetPage';
+import StarshipPage from '../starship-page/StarshipPage';
 
 function App() {
-const [personSelected,setPersonSelected]=useState('1')
-  const onPersonSelected=(id:string)=>{
-    setPersonSelected(id)
-  }
+
+
+
 
   return (
       <div>
         <Header/>
         <RandomPlanet/>
-        <div className="row mb2">
-          <div className="col-md-6">
-            <ItemList onPersonSelected={onPersonSelected}/>
-          </div>
-          <div className="col-md-6">
-            <PersonDetails personSelected={personSelected}/>
-          </div>
-        </div>
+          <ErrorButton/>
+        <PeoplePage/>
+        <PlanetPage/>
+        <StarshipPage/>
       </div>
   )
 }

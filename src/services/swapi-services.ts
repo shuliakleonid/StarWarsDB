@@ -23,7 +23,7 @@ export interface PersonType {
 export default class SwapiServiceClass {
   _apiBase = 'https://swapi.dev/api'
 
-  async getResource(url: string) {
+  getResource = async (url: string) => {
     const res = await fetch(`${this._apiBase}${url}`)
     if (!res.ok) {
       throw new Error(`Error ${url}, received ${res.status}`)
@@ -31,44 +31,44 @@ export default class SwapiServiceClass {
     return await res.json()
   }
 
-  async getAllPeople() {
+  getAllPeople = async () => {
     const res = await this.getResource(`/people/`)
     return res.results.map(this._transformPerson)
   }
 
-  async getPerson(id: string) {
+  getPerson = async (id: string) => {
     const person = await this.getResource(`/people/${id}`)
     return this._transformPerson(person)
     // this.getResource(`/people/${id}`)
   }
 
-  async getAllPlanets() {
+  getAllPlanets = async () => {
     const res = await this.getResource('/planets/')
     return res.results.map(this._transformPlanet)
   }
 
-  async getPlanet(id: string) {
+  getPlanet = async (id: string) => {
     const planet = await this.getResource(`/planets/${id}`)
     return this._transformPlanet(planet)
     // return this.getResource(`/planets/${id}`)
   }
 
-  async getAllStarShips() {
+  getAllStarShips = async () => {
     const res = await this.getResource('/starships/')
     return res.results.map(this._transformStarship)
   }
 
-  async getStarship(id: string) {
+  getStarship = async (id: string) => {
     const starship = await this.getResource(`/starships/${id}`)
     return this._transformStarship(starship)
     // this.getResource(`/starships/${id}`)
   }
 
-  _extractId(item: any) {
+  _extractId = (item: any) => {
     const idRexExp = /\/([0-9]*)\/$/
     return item.url.match(idRexExp)[1]
   }// из урла забираем порядковый номер планеты
-  _transformPlanet=(planet: any): PlanetType =>{
+  _transformPlanet = (planet: any): PlanetType => {
     return {
       id: this._extractId(planet),
       name: planet.name,
@@ -78,7 +78,7 @@ export default class SwapiServiceClass {
     }
   }
 
-  _transformStarship=(starship: any): StarshipType =>{
+  _transformStarship = (starship: any): StarshipType => {
     return {
       id: this._extractId(starship),
       name: starship.name,
@@ -92,7 +92,7 @@ export default class SwapiServiceClass {
     }
   }
 
-  _transformPerson=(person: any): PersonType=> {
+  _transformPerson = (person: any): PersonType => {
     return {
       id: this._extractId(person),
       name: person.name,
