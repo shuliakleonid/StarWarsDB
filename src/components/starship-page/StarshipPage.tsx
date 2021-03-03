@@ -29,18 +29,18 @@ const StarshipPage = () => {
   }, [starshipSelected])
   return (
       <div className="row mb2 ">
-        <div className="col-md-6 mt-3">
-          {starshipList === null
-              ? <Spinner/>
-              : <ItemList items={starshipList} onPersonSelected={onPersonSelected} children={null}/>
-          }
-        </div>
-        <div className="col-md-6">
-          {starship === null
-              ? <Spinner/>
-              : <ItemDetails item={starship} imageUrl={imageUrl} />
-          }
-        </div>
+        {/*<div className="col-md-6 mt-3">*/}
+        {/*  {starshipList === null*/}
+        {/*      ? <Spinner/>*/}
+        {/*      : <ItemList items={starshipList} onPersonSelected={onPersonSelected} children={null}/>*/}
+        {/*  }*/}
+        {/*</div>*/}
+        {/*<div className="col-md-6">*/}
+        {/*  {starship === null*/}
+        {/*      ? <Spinner/>*/}
+        {/*      : <ItemDetails item={starship} imageUrl={imageUrl} />*/}
+        {/*  }*/}
+        {/*</div>*/}
       </div>
   );
 };

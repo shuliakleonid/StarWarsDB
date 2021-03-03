@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 
-const Record = () => {
-  return (<>
-      <span className="term">Gender</span>
-  <span>{gender}</span>
-      </>
+type RecordPropsType = {
+  label: string
+  field: string
+}
+
+const Record: FunctionComponent<RecordPropsType> = (props) => {
+  return (
+      <li className="list-group-item">
+        <span className="term">{props.label}</span>
+        <span>{props.field}</span>
+      </li>
   );
 };
 

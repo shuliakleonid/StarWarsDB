@@ -9,7 +9,7 @@ type ItemDetailsDetailsTypeProps = {
   imageUrl:string
 }
 
-const ItemDetails: FunctionComponent<ItemDetailsDetailsTypeProps> = ({ item,imageUrl}) => {
+const ItemDetails: FunctionComponent<ItemDetailsDetailsTypeProps> = ({ item,imageUrl,children}) => {
   const {id, name, gender, birthYear, eyeColor} = item
   return (
       <div className="person-details card">
@@ -19,21 +19,25 @@ const ItemDetails: FunctionComponent<ItemDetailsDetailsTypeProps> = ({ item,imag
         <div className="card-body">
           <h4>{name}</h4>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">
-              <span className="term">Gender</span>
-              <span>{gender}</span>
-            </li>
-            <li className="list-group-item">
-              <span className="term">Birth Year</span>
-              <span>{birthYear}</span>
-            </li>
-            <li className="list-group-item">
-              <span className="term">Eye Color</span>
-              <span>{eyeColor}</span>
-            </li>
+            {React.Children.map(children,(child)=>{
+              return child
+            })}
+            {}
+            {/*<li className="list-group-item">*/}
+            {/*  <span className="term">Gender</span>*/}
+            {/*  <span>{gender}</span>*/}
+            {/*</li>*/}
+            {/*<li className="list-group-item">*/}
+            {/*  <span className="term">Birth Year</span>*/}
+            {/*  <span>{birthYear}</span>*/}
+            {/*</li>*/}
+            {/*<li className="list-group-item">*/}
+            {/*  <span className="term">Eye Color</span>*/}
+            {/*  <span>{eyeColor}</span>*/}
+            {/*</li>*/}
           </ul>
-        </div>
         <ErrorButton/>
+        </div>
       </div>
   );
 };

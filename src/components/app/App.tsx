@@ -16,14 +16,14 @@ function App() {
   return (
       <div>
         <Header/>
-        <RandomPlanet/>
-          <ErrorButton/>
+        {/*<RandomPlanet/>*/}
+        {/*  <ErrorButton/>*/}
           <ErrorBoundry>
         <PeoplePage/>
           </ErrorBoundry>
 
-        <PlanetPage/>
-        <StarshipPage/>
+        {/*<PlanetPage/>*/}
+        {/*<StarshipPage/>*/}
       </div>
   )
 }

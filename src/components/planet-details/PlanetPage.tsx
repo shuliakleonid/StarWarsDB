@@ -32,22 +32,22 @@ const PlanetPage = () => {
   // console.log(planetSelected)
   return (
       <div className="row mb2 ">
-        <div className="col-md-6 mt-3">
-          {planetList === null
-              ? <Spinner/>
-              : <ItemList items={planetList}
-                          renderItem={(item: { name: string; })=>`${item.name}`}
-                          onPersonSelected={onPersonSelected} children={null}/>
-          }
-        </div>
-        <div className="col-md-6">
-          {planet === null
-              ? <Spinner/>
-              : <ItemDetails item={planet} imageUrl={imageUrl}
-              //renderItemPlanet={({name,diameter,population,rotationPeriod}=>`${name}(${diameter}${population}${rotationPeriod})`)}
-              />
-          }
-        </div>
+        {/*<div className="col-md-6 mt-3">*/}
+        {/*  {planetList === null*/}
+        {/*      ? <Spinner/>*/}
+        {/*      : <ItemList items={planetList}*/}
+        {/*                  renderItem={(item: { name: string; })=>`${item.name}`}*/}
+        {/*                  onPersonSelected={onPersonSelected} children={null}/>*/}
+        {/*  }*/}
+        {/*</div>*/}
+        {/*<div className="col-md-6">*/}
+        {/*  {planet === null*/}
+        {/*      ? <Spinner/>*/}
+        {/*      : <ItemDetails item={planet} imageUrl={imageUrl}*/}
+        {/*      //renderItemPlanet={({name,diameter,population,rotationPeriod}=>`${name}(${diameter}${population}${rotationPeriod})`)}*/}
+        {/*      />*/}
+        {/*  }*/}
+        {/*</div>*/}
       </div>
   );
 };
