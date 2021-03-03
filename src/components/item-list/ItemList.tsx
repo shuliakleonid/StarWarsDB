@@ -8,15 +8,12 @@ type ItemListPropsType = {
   onPersonSelected: (id: string) => void
   items: Array<PersonType>
   renderItem?: any,
-
+  children:(i:{ name: string; })=> string
 }
-const ItemList: FunctionComponent<ItemListPropsType> = ({items,onPersonSelected,children}) => {
+const ItemList: React.FC<ItemListPropsType> = ({items,onPersonSelected,children}) => {
 
   const ItemsList = items.map(el => {
     const {id} = el
-
-
-    // @ts-ignore
     const label = children(el)
     return <li key={v1()} className="list-group-item"
                onClick={() => onPersonSelected(id)}>{label}</li>
