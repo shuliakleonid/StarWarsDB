@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import ItemList from '../item-list/ItemList';
-import PersonDetails from '../person-details/PersonDetails';
+import ItemDetails from '../item-details/ItemDetails';
 import SwapiServiceClass, {PersonType} from '../../services/swapi-services';
 import Spinner from '../spinner/Spinner';
 
@@ -9,21 +9,27 @@ const PeoplePage = () => {
   const [peopleList, setPeopleList] = useState<Array<PersonType> | null>(null)
   const [person, setPerson] = useState<PersonType | null>(null)
   const [personSelected, setPersonSelected] = useState('1')
+
+  const [imageUrl,getImageUrl]= useState('')
   const onPersonSelected = (id: string) => {
     setPersonSelected(id)
   }
 
   useEffect(() => {
     const swapiService = new SwapiServiceClass()
+    const {getPersonImage}=swapiService
     swapiService.getAllPeople()
         .then((response) => setPeopleList(response))//получаем список персонажей
 
     swapiService.getPerson(personSelected)//получаем необходимого персонажа
-        .then((personId) => setPerson(personId))
+        .then((personId) => {
+          debugger
+          // @ts-ignore
+          return setPerson(personId), getImageUrl(getPersonImage(personId.id))
+        })
 
   }, [personSelected])
-  // console.log(person,'person')
-  // console.log(personSelected)
+
 
   return (
       <div className="row mb2 ">
@@ -42,7 +48,7 @@ const PeoplePage = () => {
         <div className="col-md-6">
           {person === null
               ? <Spinner/>
-              : <PersonDetails item={person}/>
+              : <ItemDetails item={person} imageUrl={imageUrl} />
           }
         </div>
       </div>

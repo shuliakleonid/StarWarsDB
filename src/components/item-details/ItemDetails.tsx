@@ -1,21 +1,20 @@
 import React, {FunctionComponent} from 'react';
-import './PersonDetails.css'
+import './ItemDetails.css'
 import {PersonType} from '../../services/swapi-services';
 import ErrorButton from '../error-button/ErrorButton';
 
-type PersonDetailsTypeProps = {
+type ItemDetailsDetailsTypeProps = {
   renderItemPlanet?:any
   item: PersonType
+  imageUrl:string
 }
 
-const PersonDetails: FunctionComponent<PersonDetailsTypeProps> = ({ item}) => {
-  // console.log(item,'ItemList')
+const ItemDetails: FunctionComponent<ItemDetailsDetailsTypeProps> = ({ item,imageUrl}) => {
   const {id, name, gender, birthYear, eyeColor} = item
-  //renderItemPlanet(item)
   return (
       <div className="person-details card">
         <img className="person-image"
-             src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+             src={imageUrl}
         />
         <div className="card-body">
           <h4>{name}</h4>
@@ -39,4 +38,4 @@ const PersonDetails: FunctionComponent<PersonDetailsTypeProps> = ({ item}) => {
   );
 };
 
-export default PersonDetails;
+export default ItemDetails;

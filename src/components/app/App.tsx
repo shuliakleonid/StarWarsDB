@@ -22,8 +22,8 @@ function App() {
         <PeoplePage/>
           </ErrorBoundry>
 
-        {/*<PlanetPage/>*/}
-        {/*<StarshipPage/>*/}
+        <PlanetPage/>
+        <StarshipPage/>
       </div>
   )
 }
