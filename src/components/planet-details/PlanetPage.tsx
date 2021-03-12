@@ -10,7 +10,7 @@ const PlanetPage = () => {
   const [planetList, setPlanetList] = useState<any | null>(null)
   const [planet, setPlanet] = useState<any | null>(null)
   const [planetSelected, setPlanetSelected] = useState('15')
-  const [imageUrl,getImageUrl]= useState<string>('')
+  const [imageUrl, getImageUrl] = useState<string>('')
   const onPersonSelected = (id: string) => {
     setPlanetSelected(id)
   }
@@ -18,13 +18,13 @@ const PlanetPage = () => {
   useEffect(() => {
 
     const swapiService = new SwapiServiceClass()
-    const {getPlanetImage}=swapiService
+    const {getPlanetImage} = swapiService
     swapiService.getAllPlanets()
         .then((response) => setPlanetList(response))//получаем список планет
     swapiService.getPlanet(planetSelected)//получаем необходимого планеты
         .then((planetId) => {
           console.log(planetId)
-         return setPlanet(planetId),getImageUrl(getPlanetImage(planetId.id))
+          return (setPlanet(planetId), getImageUrl(getPlanetImage(planetId.id)))
         })
 
   }, [planetSelected])
@@ -35,9 +35,9 @@ const PlanetPage = () => {
           {planetList === null
               ? <Spinner/>
               : <ItemList items={planetList}
-                          renderItem={(item: { name: string; })=>`${item.name}`}
-                          onPersonSelected={onPersonSelected} >
-                {(item: { name: string}) =>
+                          renderItem={(item: { name: string; }) => `${item.name}`}
+                          onPersonSelected={onPersonSelected}>
+                {(item: { name: string }) =>
                     `${item.name}`}
               </ItemList>
           }
@@ -46,8 +46,8 @@ const PlanetPage = () => {
           {planet === null
               ? <Spinner/>
               : <ItemDetails item={planet} imageUrl={imageUrl}>
-                <Record field = 'population' label='Population'/>
-                <Record field = 'rotationPeriod' label='Rotation Period'/>
+                <Record field='population' label='Population'/>
+                <Record field='rotationPeriod' label='Rotation Period'/>
               </ItemDetails>
           }
         </div>

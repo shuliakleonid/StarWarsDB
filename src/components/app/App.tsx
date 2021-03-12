@@ -1,29 +1,31 @@
 import React from 'react';
-import ErrorButton from '../error-button/ErrorButton';
 import Header from '../header/Header';
 import RandomPlanet from '../random-planet/RandomPlanet';
 import PeoplePage from '../people-page/PeoplePage';
 import PlanetPage from '../planet-details/PlanetPage';
 import StarshipPage from '../starship-page/StarshipPage';
-import ErrorIndicator from '../error-indicator/ErrorIndicator';
 import ErrorBoundry from '../error-boundary/ErrorBoundary';
+import {Switch,Route} from 'react-router-dom';
 
 function App() {
-
-
-
 
   return (
       <div>
         <Header/>
-        {/*<RandomPlanet/>*/}
-        {/*  <ErrorButton/>*/}
+        <RandomPlanet/>
+        <Switch>
           <ErrorBoundry>
-        <PeoplePage/>
+            <Route path='/people'  component={PeoplePage}/>
           </ErrorBoundry>
-
-        <PlanetPage/>
-        <StarshipPage/>
+          <ErrorBoundry>
+            <Route path='/planets'  component={PlanetPage}/>
+            {/*<PlanetPage/>*/}
+          </ErrorBoundry>
+          <ErrorBoundry>
+            <Route path='/starships'  component={StarshipPage}/>
+            {/*<StarshipPage/>*/}
+          </ErrorBoundry>
+        </Switch>
       </div>
   )
 }
