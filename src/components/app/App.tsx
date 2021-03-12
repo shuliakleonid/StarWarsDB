@@ -14,17 +14,12 @@ function App() {
         <Header/>
         <RandomPlanet/>
         <Switch>
-          <ErrorBoundry>
             <Route path='/people'  component={PeoplePage}/>
-          </ErrorBoundry>
-          <ErrorBoundry>
+            {/*<PeoplePage/>*/}
             <Route path='/planets'  component={PlanetPage}/>
             {/*<PlanetPage/>*/}
-          </ErrorBoundry>
-          <ErrorBoundry>
             <Route path='/starships'  component={StarshipPage}/>
             {/*<StarshipPage/>*/}
-          </ErrorBoundry>
         </Switch>
       </div>
   )
