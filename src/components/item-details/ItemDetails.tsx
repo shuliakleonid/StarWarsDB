@@ -21,7 +21,7 @@ const ItemDetails: FunctionComponent<ItemDetailsDetailsTypeProps> = ({item, imag
           <ul className="list-group list-group-flush">
             {React.Children.map(children, (child) => {
               return React.cloneElement(child as React.ReactElement<any>, {item})
-              // return (child)
+
             })}
           </ul>
           <ErrorButton/>

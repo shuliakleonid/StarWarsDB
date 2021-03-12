@@ -26,6 +26,9 @@ const StarshipPage = () => {
           return setStarship(starshipId), getImageUrl(getStarshipImage(starshipId.id))
         })
   }, [starshipSelected])
+
+
+
   return (
       <div className="row mb2 ">
         <div className="col-md-6 mt-3">
@@ -37,6 +40,7 @@ const StarshipPage = () => {
               </ItemList>
           }
         </div>
+
         <div className="col-md-6">
           {starship === null
               ? <Spinner/>
@@ -50,5 +54,7 @@ const StarshipPage = () => {
       </div>
   );
 };
+
+
 
 export default StarshipPage;
