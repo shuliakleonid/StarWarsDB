@@ -1,7 +1,11 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 
-const LoginPage: React.FC<any> = props => {
+type LoginPagePropsType = {
+  isLoggedIn:boolean
+  onLogin:()=>void
+}
+const LoginPage: React.FC<LoginPagePropsType> = props => {
   const {isLoggedIn, onLogin} = props
 
   return (
