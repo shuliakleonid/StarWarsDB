@@ -14,6 +14,7 @@ function App() {
         <Header/>
         <RandomPlanet/>
         <Switch>
+          <Route exact path='/' render={()=><h2>Welcome to StarDB</h2>}/>
             <Route path='/people'  component={PeoplePage}/>
             {/*<PeoplePage/>*/}
             <Route path='/planets'  component={PlanetPage}/>

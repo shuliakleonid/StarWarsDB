@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css'
-import {NavLink} from 'react-router-dom'
+import {NavLink,Link} from 'react-router-dom'
 
 
 
@@ -8,7 +8,7 @@ const Header = () => {
   return (
       <div className='header d-flex'>
         <h3>
-          <a href="#">StarDB</a>
+          <Link to={'/'}>StarDB</Link>
         </h3>
         <ul className="d-flex">
           <li><NavLink  to={'/people'} activeClassName="active">People</NavLink ></li>
