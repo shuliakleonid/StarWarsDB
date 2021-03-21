@@ -39,6 +39,7 @@ This project was done with using:
 2. Typescript (typescript: 4.1.2)
 3. Fetch API
 4. Routing (react-router-dom: 5.2.0)
+5. Bootstrap
    
 
 
