@@ -1,5 +1,5 @@
 # StarWarsDB 
-![example]('./src/assets/starwarsDB.png')
+![]('https://github.com/shuliakleonid/StarWarsDB/blob/main/src/assets/starwarsDB.png')
 
 #### Description of your project
 
