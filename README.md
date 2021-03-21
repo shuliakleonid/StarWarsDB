@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# StarWarsDB 
+![example]('./src/assets/starwarsDB.png')
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Description of your project
 
-## Available Scripts
+This was created out of a great love for Star Wars. And of course, learn something new and practice programming Single Page Application.
 
-In the project directory, you can run:
 
-### `yarn start`
+## Table of content
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [**Getting Started**](#getting-started)
+- [Built With](#built-with)
+- [Links](#links)
+- [Contributing](#contributing)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### Install
+```console
+npm install 
+npm run
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Usage
+I use API from https://swapi.dev and image I give from https://starwars-visualguide.com/assets/img/
+```javascript
+export class SwapiServiceClass {
+  _apiBase = 'https://swapi.dev/api'
+  _imageBase = 'https://starwars-visualguide.com/assets/img/'
+  }
+```
+## Built With
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project was done with using:
+1. React (react: 17.0.1)
+2. Typescript (typescript: 4.1.2)
+3. Fetch API
+4. Routing (react-router-dom: 5.2.0)
+   
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Links
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Even though this information can be found inside the project on machine-readable
+format like in a .json file, it's good to include a summary of most useful
+links to humans using your project. You can include links like:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Project homepage: https://shuliakleonid.github.io/StarWarsDB/
+- Repository:https://github.com/shuliakleonid/StarWarsDB
+- Issue tracker: https://github.com/shuliakleonid/StarWarsDB/issues
+    - In case of sensitive bugs like security vulnerabilities, please contact
+     zeleny777@gmail.com directly instead of using issue tracker. We value your effort
+      to improve the security and privacy of this project!
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Issues
+In the case of a bug report, bugfix or a suggestions, please feel very free to open an issue.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Pull request
+Pull requests are always welcome, and I'll do my best to do reviews as fast as I can.
+
+
