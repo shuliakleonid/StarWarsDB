@@ -3,7 +3,7 @@
 
 #### Description of your project
 
-This was created out of a great love for Star Wars. And of course, learn something new and practice programming Single Page Application.
+This was created out of a great love for Star Wars. And of course, learn something new and practice develop Single Page Application.
 
 
 ## Table of content
@@ -39,6 +39,7 @@ This project was done with using:
 2. Typescript (typescript: 4.1.2)
 3. Fetch API
 4. Routing (react-router-dom: 5.2.0)
+5. Bootstrap
    
 
 
