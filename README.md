@@ -3,7 +3,7 @@
 
 #### Description of your project
 
-This was created out of a great love for Star Wars. And of course, learn something new and practice programming Single Page Application.
+This was created out of a great love for Star Wars. And of course, learn something new and practice develop Single Page Application.
 
 
 ## Table of content
