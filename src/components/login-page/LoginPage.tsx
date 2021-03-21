@@ -2,8 +2,8 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 
 type LoginPagePropsType = {
-  isLoggedIn:boolean
-  onLogin:()=>void
+  isLoggedIn: boolean
+  onLogin: () => void
 }
 const LoginPage: React.FC<LoginPagePropsType> = props => {
   const {isLoggedIn, onLogin} = props

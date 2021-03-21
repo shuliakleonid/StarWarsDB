@@ -20,11 +20,11 @@ const PlanetPage = () => {
     const swapiService = new SwapiServiceClass()
     const {getPlanetImage} = swapiService
     swapiService.getAllPlanets()
-        .then((response) => setPlanetList(response))//получаем список планет
-    swapiService.getPlanet(planetSelected)//получаем необходимого планеты
+        .then((response) => setPlanetList(response))
+    swapiService.getPlanet(planetSelected)
         .then((planetId) => {
-          console.log(planetId)
-          return (setPlanet(planetId), getImageUrl(getPlanetImage(planetId.id)))
+          setPlanet(planetId)
+          getImageUrl(getPlanetImage(planetId.id))
         })
 
   }, [planetSelected])

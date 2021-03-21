@@ -6,7 +6,6 @@ import Spinner from '../spinner/Spinner';
 import Record from '../record/Record';
 
 const StarshipPage = () => {
-
   const [starshipList, setStarshipList] = useState<any | null>(null)
   const [starship, setStarship] = useState<any | null>(null)
   const [starshipSelected, setStarshipSelected] = useState('5')
@@ -19,15 +18,13 @@ const StarshipPage = () => {
     const swapiService = new SwapiServiceClass()
     const {getStarshipImage} = swapiService
     swapiService.getAllStarShips()
-        .then((response) => setStarshipList(response))//получаем список кораблей
-    swapiService.getStarship(starshipSelected)//получаем необходимого кораблей
+        .then((response) => setStarshipList(response))
+    swapiService.getStarship(starshipSelected)
         .then((starshipId) => {
-          console.log(starshipId)
-          return setStarship(starshipId), getImageUrl(getStarshipImage(starshipId.id))
+          setStarship(starshipId)
+          getImageUrl(getStarshipImage(starshipId.id))
         })
   }, [starshipSelected])
-
-
 
   return (
       <div className="row mb2 ">
@@ -54,7 +51,6 @@ const StarshipPage = () => {
       </div>
   );
 };
-
 
 
 export default StarshipPage;

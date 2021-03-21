@@ -3,10 +3,10 @@ import React, {FunctionComponent} from 'react';
 type RecordPropsType = {
   label: string
   field: string
-  item?:any
+  item?: any
 }
 
-const Record: FunctionComponent<RecordPropsType> = ({item,field,label}) => {
+const Record: FunctionComponent<RecordPropsType> = ({item, field, label}) => {
   return (
       <li className="list-group-item">
         <span className="term">{label}</span>

@@ -34,28 +34,26 @@ const RandomPlanet = () => {
   const [loading, setLoading] = useState<boolean>(state.loading)
   const [error, setError] = useState<boolean>(false)
   useEffect(() => {
-let interval=setInterval(()=>{
-    const id = Math.floor(Math.random() * 15 + 2) + ''//рандомный номер планеты
-    const swapiService = new SwapiServiceClass()
-    swapiService.getPlanet(id)
-        .then((planet) => {
+    let interval = setInterval(() => {
+      const id = Math.floor(Math.random() * 15 + 2) + ''
+      const swapiService = new SwapiServiceClass()
+      swapiService.getPlanet(id)
+          .then((planet) => {
 
-              return setDataOfPlanet({
-                id,
-                name: planet.name,
-                population: planet.population,
-                rotationPeriod: planet.rotationPeriod,
-                diameter: planet.diameter
-              }),
-                  setLoading(false)
-            }
-        ).catch((err) => setError(true))
+                setDataOfPlanet({
+                  id,
+                  name: planet.name,
+                  population: planet.population,
+                  rotationPeriod: planet.rotationPeriod,
+                  diameter: planet.diameter
+                })
+                setLoading(false)
+              }
+          ).catch((err) => setError(true))
 
-},10000)
-return ()=>clearInterval(interval)
+    }, 10000)
+    return () => clearInterval(interval)
   }, [])
-
-
 
   return (
       error ? <ErrorIndicator/>
@@ -63,7 +61,7 @@ return ()=>clearInterval(interval)
             {loading
                 ? <Spinner/>
                 : <>
-                  <img className="planet-image"
+                  <img alt='Planet' className="planet-image"
                        src={`https://starwars-visualguide.com/assets/img/planets/${dataOfPlanet.id ? dataOfPlanet.id : '5'}.jpg`}/>
                   <div>
                     <h4>{dataOfPlanet.name}</h4>
@@ -84,7 +82,6 @@ return ()=>clearInterval(interval)
                   </div>
                 </>}
           </div>
-
   );
 };
 

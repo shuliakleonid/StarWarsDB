@@ -1,17 +1,15 @@
-import React, {FunctionComponent, ReactChild, ReactFragment, ReactNode, ReactPortal} from 'react';
+import React from 'react';
 import './ItemLists.css'
 import {PersonType} from '../../services/swapi-services';
 import {v1} from 'uuid'
-
 
 type ItemListPropsType = {
   onPersonSelected: (id: string) => void
   items: Array<PersonType>
   renderItem?: any,
-  children:(i:{ name: string; })=> string
+  children: (i: { name: string; }) => string
 }
-const ItemList: React.FC<ItemListPropsType> = ({items,onPersonSelected,children}) => {
-
+const ItemList: React.FC<ItemListPropsType> = ({items, onPersonSelected, children}) => {
   const ItemsList = items.map(el => {
     const {id} = el
     const label = children(el)

@@ -10,10 +10,10 @@ type ItemDetailsDetailsTypeProps = {
 }
 
 const ItemDetails: FunctionComponent<ItemDetailsDetailsTypeProps> = ({item, imageUrl, children}) => {
-  const {id, name, gender, birthYear, eyeColor} = item
+  const {name} = item
   return (
       <div className="person-details card">
-        <img className="person-image"
+        <img alt='starWars' className="person-image"
              src={imageUrl}
         />
         <div className="card-body">
@@ -21,7 +21,6 @@ const ItemDetails: FunctionComponent<ItemDetailsDetailsTypeProps> = ({item, imag
           <ul className="list-group list-group-flush">
             {React.Children.map(children, (child) => {
               return React.cloneElement(child as React.ReactElement<any>, {item})
-
             })}
           </ul>
           <ErrorButton/>

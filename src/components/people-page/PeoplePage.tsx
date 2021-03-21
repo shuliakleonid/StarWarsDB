@@ -19,14 +19,13 @@ const PeoplePage = () => {
     const swapiService = new SwapiServiceClass()
     const {getPersonImage} = swapiService
     swapiService.getAllPeople()
-        .then((response) => setPeopleList(response))//получаем список персонажей
-    swapiService.getPerson(personSelected)//получаем необходимого персонажа
+        .then((response) => setPeopleList(response))
+    swapiService.getPerson(personSelected)
         .then((personId) => {
-          console.log(personId)
-          return setPerson(personId), getImageUrl(getPersonImage(personId.id))
+          setPerson(personId)
+          getImageUrl(getPersonImage(personId.id))
         })
   }, [personSelected])
-
 
   return (
       <div className="row mb2 ">

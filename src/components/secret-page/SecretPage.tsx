@@ -1,8 +1,8 @@
 import React from 'react';
-import {Redirect} from  'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 type SecretPagePropsType = {
-  isLoggedIn:boolean
+  isLoggedIn: boolean
 }
 const SecretPage: React.FC<SecretPagePropsType> = ({isLoggedIn}) => {
 
